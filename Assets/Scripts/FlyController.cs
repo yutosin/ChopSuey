@@ -110,6 +110,7 @@ public class FlyController : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag("HitZone"))
 		{
+			GameController.SharedInstance.UpdateScore(1);
 			Destroy(this.gameObject);
 		}
 		if (other.gameObject.CompareTag("Hand"))
