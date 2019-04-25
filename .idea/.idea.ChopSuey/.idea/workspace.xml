@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c07c8b02-15b1-411d-8939-dfa16bc35c18" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ChopstickController.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/ChopstickController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+              <folding>
+                <marker date="1556067270000" expanded="false" signature="6:78" ph="..." />
+                <marker date="1556067270000" expanded="true" signature="128:1352" ph="{...}" />
+                <marker date="1556067270000" expanded="true" signature="327:406" ph="{...}" />
+                <marker date="1556067270000" expanded="true" signature="460:1350" ph="{...}" />
+                <marker date="1556067270000" expanded="true" signature="813:1080" ph="{...}" />
+                <marker date="1556067270000" expanded="true" signature="1087:1347" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlyController.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/FlyController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="92" column="89" selection-start-line="92" selection-start-column="89" selection-end-line="92" selection-end-column="89" />
+              <folding>
+                <marker date="1556169061000" expanded="true" signature="6:78" ph="..." />
+                <marker date="1556169061000" expanded="true" signature="123:5189" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="126:299" ph="/* public GameObject start, startTangentPoint, end, endTangentPoint; ... */" />
+                <marker date="1556169061000" expanded="true" signature="642:1013" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="791:915" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="1032:3218" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="1036:2194" ph="/* check parameters and components ... */" />
+                <marker date="1556169061000" expanded="true" signature="2216:2396" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="2221:2325" ph="/* foreach (HermiteCurve curve in _flyPath) ... */" />
+                <marker date="1556169061000" expanded="true" signature="2509:2557" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="3001:3040" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="3153:3214" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="3264:3353" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="3313:3350" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="3412:5187" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="3654:5159" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="3782:4144" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="4152:4224" ph="{...}" />
+                <marker date="1556169061000" expanded="true" signature="4661:4837" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HermiteCurve.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/HermiteCurve.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1335">
+              <caret line="89" selection-start-line="89" selection-end-line="89" />
+              <folding>
+                <marker date="1556163690000" expanded="true" signature="6:78" ph="..." />
+                <marker date="1556163690000" expanded="true" signature="107:360" ph="{...}" />
+                <marker date="1556163690000" expanded="true" signature="254:356" ph="{...}" />
+                <marker date="1556163690000" expanded="true" signature="387:2309" ph="{...}" />
+                <marker date="1556163690000" expanded="true" signature="575:614" ph="{...}" />
+                <marker date="1556163690000" expanded="true" signature="649:686" ph="{...}" />
+                <marker date="1556163690000" expanded="true" signature="737:1336" ph="{...}" />
+                <marker date="1556163690000" expanded="true" signature="898:1333" ph="{...}" />
+                <marker date="1556163690000" expanded="true" signature="1394:1749" ph="{...}" />
+                <marker date="1556163690000" expanded="true" signature="1579:1639" ph="{...}" />
+                <marker date="1556163690000" expanded="true" signature="1689:1746" ph="{...}" />
+                <marker date="1556163690000" expanded="true" signature="1843:2307" ph="{...}" />
+                <marker date="1556163690000" expanded="true" signature="2072:2123" ph="{...}" />
+                <marker date="1556163690000" expanded="true" signature="2165:2301" ph="{...}" />
+                <marker date="1556163690000" expanded="true" signature="2217:2297" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChopstickController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FlyController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HermiteCurve.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/FollowMouse.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ChopstickController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HermiteCurveCreator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HermiteCurve.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FlyController.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="UnityExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+      <pane id="UnityExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="ChopSuey" type="483dac07:UnityExplorerNode$Root" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="ChopSuey" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="ChopSuey" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-hidden-items" value="false" />
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="76983">
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="76983" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c07c8b02-15b1-411d-8939-dfa16bc35c18" name="Default" comment="" />
+      <created>1555766737970</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1555766737970</updated>
+      <workItem from="1555766742352" duration="4492000" />
+      <workItem from="1556054899639" duration="17737000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="22229000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Unit Tests" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17739628" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" order="7" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="NuGet" order="7" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/FlyController.cs</url>
+          <line>33</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/FlyController.cs" initialLine="28">
+            <startOffsets>
+              <startOffset value="919" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="948" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/FlyController.cs</url>
+          <line>170</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/FlyController.cs" initialLine="131">
+            <startOffsets>
+              <startOffset value="5104" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="5155" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/HermiteCurve.cs</url>
+          <line>51</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/HermiteCurve.cs" initialLine="46">
+            <startOffsets>
+              <startOffset value="1258" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="1285" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/FlyController.cs</url>
+          <line>76</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/FlyController.cs" initialLine="69">
+            <startOffsets>
+              <startOffset value="2201" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="2216" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/FlyController.cs</url>
+          <line>151</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/FlyController.cs" initialLine="125">
+            <startOffsets>
+              <startOffset value="4318" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="4370" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/FlyController.cs</url>
+          <line>140</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/FlyController.cs" initialLine="114">
+            <startOffsets>
+              <startOffset value="4047" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="4102" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/FlyController.cs</url>
+          <line>155</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/FlyController.cs" initialLine="129">
+            <startOffsets>
+              <startOffset value="4484" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="4539" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/FlyController.cs</url>
+          <line>26</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/FlyController.cs" initialLine="23">
+            <startOffsets>
+              <startOffset value="717" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="762" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="19" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/ChopstickController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+          <folding>
+            <marker date="1556067270000" expanded="false" signature="6:78" ph="..." />
+            <marker date="1556067270000" expanded="true" signature="128:1352" ph="{...}" />
+            <marker date="1556067270000" expanded="true" signature="327:406" ph="{...}" />
+            <marker date="1556067270000" expanded="true" signature="460:1350" ph="{...}" />
+            <marker date="1556067270000" expanded="true" signature="813:1080" ph="{...}" />
+            <marker date="1556067270000" expanded="true" signature="1087:1347" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/FlyController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding>
+            <marker date="1556169061000" expanded="true" signature="6:78" ph="..." />
+            <marker date="1556169061000" expanded="true" signature="123:5189" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="126:299" ph="/* public GameObject start, startTangentPoint, end, endTangentPoint; ... */" />
+            <marker date="1556169061000" expanded="true" signature="642:1013" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="791:915" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="1032:3218" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="1036:2194" ph="/* check parameters and components ... */" />
+            <marker date="1556169061000" expanded="true" signature="2216:2396" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="2221:2325" ph="/* foreach (HermiteCurve curve in _flyPath) ... */" />
+            <marker date="1556169061000" expanded="true" signature="2509:2557" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3001:3040" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3153:3214" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3264:3353" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3313:3350" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3412:5187" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3654:5159" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3782:4144" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="4152:4224" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="4661:4837" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/FollowMouse.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/HermiteCurveCreator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/ChopstickController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <marker date="1556067270000" expanded="false" signature="6:78" ph="..." />
+            <marker date="1556067270000" expanded="true" signature="128:1352" ph="{...}" />
+            <marker date="1556067270000" expanded="true" signature="327:406" ph="{...}" />
+            <marker date="1556067270000" expanded="true" signature="460:1350" ph="{...}" />
+            <marker date="1556067270000" expanded="true" signature="813:1080" ph="{...}" />
+            <marker date="1556067270000" expanded="true" signature="1087:1347" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/HermiteCurve.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1335">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+          <folding>
+            <marker date="1556163690000" expanded="true" signature="6:78" ph="..." />
+            <marker date="1556163690000" expanded="true" signature="107:360" ph="{...}" />
+            <marker date="1556163690000" expanded="true" signature="254:356" ph="{...}" />
+            <marker date="1556163690000" expanded="true" signature="387:2309" ph="{...}" />
+            <marker date="1556163690000" expanded="true" signature="575:614" ph="{...}" />
+            <marker date="1556163690000" expanded="true" signature="649:686" ph="{...}" />
+            <marker date="1556163690000" expanded="true" signature="737:1336" ph="{...}" />
+            <marker date="1556163690000" expanded="true" signature="898:1333" ph="{...}" />
+            <marker date="1556163690000" expanded="true" signature="1394:1749" ph="{...}" />
+            <marker date="1556163690000" expanded="true" signature="1579:1639" ph="{...}" />
+            <marker date="1556163690000" expanded="true" signature="1689:1746" ph="{...}" />
+            <marker date="1556163690000" expanded="true" signature="1843:2307" ph="{...}" />
+            <marker date="1556163690000" expanded="true" signature="2072:2123" ph="{...}" />
+            <marker date="1556163690000" expanded="true" signature="2165:2301" ph="{...}" />
+            <marker date="1556163690000" expanded="true" signature="2217:2297" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/FlyController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="92" column="89" selection-start-line="92" selection-start-column="89" selection-end-line="92" selection-end-column="89" />
+          <folding>
+            <marker date="1556169061000" expanded="true" signature="6:78" ph="..." />
+            <marker date="1556169061000" expanded="true" signature="123:5189" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="126:299" ph="/* public GameObject start, startTangentPoint, end, endTangentPoint; ... */" />
+            <marker date="1556169061000" expanded="true" signature="642:1013" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="791:915" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="1032:3218" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="1036:2194" ph="/* check parameters and components ... */" />
+            <marker date="1556169061000" expanded="true" signature="2216:2396" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="2221:2325" ph="/* foreach (HermiteCurve curve in _flyPath) ... */" />
+            <marker date="1556169061000" expanded="true" signature="2509:2557" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3001:3040" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3153:3214" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3264:3353" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3313:3350" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3412:5187" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3654:5159" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="3782:4144" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="4152:4224" ph="{...}" />
+            <marker date="1556169061000" expanded="true" signature="4661:4837" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
