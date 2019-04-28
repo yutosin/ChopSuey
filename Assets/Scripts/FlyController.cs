@@ -174,10 +174,10 @@ public class FlyController : MonoBehaviour {
 				controlPoints.startTangentPoint = hermiteCurves[i - 1].ControlPoints.endTangentPoint;
 			}
 
-			Instantiate(controlPrefab, controlPoints.startPoint, Quaternion.identity);
-			Instantiate(tanPrefab, m0, Quaternion.identity);
-			Instantiate(controlPrefab, controlPoints.endPoint, Quaternion.identity);
-			Instantiate(tanPrefab, m1, Quaternion.identity);
+//			Instantiate(controlPrefab, controlPoints.startPoint, Quaternion.identity);
+//			Instantiate(tanPrefab, m0, Quaternion.identity);
+//			Instantiate(controlPrefab, controlPoints.endPoint, Quaternion.identity);
+//			Instantiate(tanPrefab, m1, Quaternion.identity);
 			
 			hermiteCurves.Add(new HermiteCurve(controlPoints));
 		}

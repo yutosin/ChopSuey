@@ -21,7 +21,7 @@ public class HermiteCurve
 	private List<Vector3> _curvePoints;
 	private HermitePoints _controlPoints;
 	
-	public Color lineColor = Color.white;
+	public Color lineColor = Color.cyan;
 	public float lineWidth = 0.2f;
 
 	public HermitePoints ControlPoints

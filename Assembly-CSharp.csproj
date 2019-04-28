@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\HandController.cs" />
     <Compile Include="Assets\Scripts\HermiteCurve.cs" />
+    <Compile Include="Assets\Scripts\UIController.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/illohim/Documents/SGD-213/ChopSuey/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

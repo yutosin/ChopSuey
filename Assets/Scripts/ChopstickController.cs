@@ -6,16 +6,16 @@ public class ChopstickController : MonoBehaviour
 {
 	public GameObject topChopStick;
 	public Collider captureSphere;
+
+	[SerializeField] private float rotateDuration;
 	
 	private Vector3 mousePosition;
 	private float zPos = 10f;
-	
-	private float test;
+	private bool rotating;
 
 	// Use this for initialization
 	void Start ()
 	{
-		test =  Camera.main.orthographicSize * (Screen.width / Screen.height);
 	}
 	
 	// Update is called once per frame
@@ -30,24 +30,65 @@ public class ChopstickController : MonoBehaviour
 		pos.z = zPos;
 		transform.position = Camera.main.ViewportToWorldPoint(pos);
 
-		if (Input.GetMouseButton(0))
-		{
-			captureSphere.enabled = true;
-			Vector3 tempLocal = topChopStick.transform.localPosition;
-			tempLocal.x = -0.7f;
-			topChopStick.transform.localPosition = tempLocal;
+		if (Input.GetMouseButtonDown(0))
+			StartCoroutine(Click());
 
-			topChopStick.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 25));
-			
-		}
-		else
-		{
-			captureSphere.enabled = false;
-			Vector3 tempLocal = topChopStick.transform.localPosition;
-			tempLocal.x = 0f;
-			topChopStick.transform.localPosition = tempLocal;
+//		if (Input.GetMouseButton(0))
+//		{
+//			captureSphere.enabled = true;
+//			Vector3 tempLocal = topChopStick.transform.localPosition;
+//			tempLocal.x = -0.7f;
+//			topChopStick.transform.localPosition = tempLocal;
+//
+//			topChopStick.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 25));
+//			
+//		}
+//		else
+//		{
+//			captureSphere.enabled = false;
+//			Vector3 tempLocal = topChopStick.transform.localPosition;
+//			tempLocal.x = 0f;
+//			topChopStick.transform.localPosition = tempLocal;
+//
+//			topChopStick.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+//		}
+	}
+	
+	private IEnumerator Click()
+	{
+		if (rotating)
+			yield break;
+		rotating = true;
+		
+		Quaternion currentRot = topChopStick.transform.rotation;
 
-			topChopStick.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+		float counter = 0;
+		while (counter < rotateDuration)
+		{
+			if (counter <= rotateDuration / 4)
+			{
+				captureSphere.enabled = true;
+				Vector3 tempLocal = topChopStick.transform.localPosition;
+				tempLocal.x = -0.7f;
+				topChopStick.transform.localPosition = tempLocal;
+				counter += Time.deltaTime;
+				topChopStick.transform.localRotation = Quaternion.Lerp(currentRot, Quaternion.Euler(new Vector3(0, 0, -25)), 
+					counter / (rotateDuration / 4));
+				yield return null;
+			}
+			else
+			{
+				captureSphere.enabled = false;
+				Vector3 tempLocal = topChopStick.transform.localPosition;
+				tempLocal.x = 0f;
+				topChopStick.transform.localPosition = tempLocal;
+				counter += Time.deltaTime;
+				topChopStick.transform.localRotation = Quaternion.Lerp(currentRot, Quaternion.Euler(new Vector3(0, 0, -42)), 
+					counter / (rotateDuration / 2));
+				yield return null;
+			}
 		}
+
+		rotating = false;
 	}
 }
