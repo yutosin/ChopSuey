@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
 	public int score = 0;
 
 	public Text scoreText;
+
+	public bool isPaused = false;
 	
 	public static GameController SharedInstance
 	{

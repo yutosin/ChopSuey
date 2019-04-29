@@ -6,6 +6,7 @@ public class ChopstickController : MonoBehaviour
 {
 	public GameObject topChopStick;
 	public Collider captureSphere;
+	public AudioSource clickSound;
 
 	[SerializeField] private float rotateDuration;
 	
@@ -21,6 +22,8 @@ public class ChopstickController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		if (GameController.SharedInstance.isPaused)
+			return;
 		Vector3 temp = Input.mousePosition;
 		temp.z = zPos;
 		mousePosition = Camera.main.ScreenToWorldPoint(temp);
@@ -59,6 +62,8 @@ public class ChopstickController : MonoBehaviour
 		if (rotating)
 			yield break;
 		rotating = true;
+		
+		clickSound.Play();
 		
 		Quaternion currentRot = topChopStick.transform.rotation;
 
