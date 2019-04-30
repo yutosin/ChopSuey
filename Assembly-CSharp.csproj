@@ -55,12 +55,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BeeController.cs" />
+    <Compile Include="Assets\Scripts\BeePreventWinCondition.cs" />
+    <Compile Include="Assets\Scripts\BugColorWinCondition.cs" />
     <Compile Include="Assets\Scripts\ChopstickController.cs" />
+    <Compile Include="Assets\Scripts\CountWinCondition.cs" />
     <Compile Include="Assets\Scripts\FlyController.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\HandController.cs" />
     <Compile Include="Assets\Scripts\HermiteCurve.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
+    <Compile Include="Assets\Scripts\WinCondition.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/illohim/Documents/SGD-213/ChopSuey/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

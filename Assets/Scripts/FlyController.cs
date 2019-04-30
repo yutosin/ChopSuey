@@ -2,7 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyController : MonoBehaviour {
+public enum FlyType
+{
+	BLACK_FLY,
+	RED_FLY,
+	BLUE_FLY,
+	BEE,
+	NONE
+}
+
+public class FlyController : MonoBehaviour
+{
 
 //	public GameObject start, startTangentPoint, end, endTangentPoint;
 //
@@ -11,6 +21,8 @@ public class FlyController : MonoBehaviour {
 //	public int numberOfPoints = 20;
 	[SerializeField] private LineRenderer _lineRenderer;
 	[SerializeField] private bool _drawCurve = true;
+
+	public FlyType flyType;
 
 	private List<HermiteCurve> _flyPath;
 	private int _currentTargetCurvePoint = 1;
@@ -35,60 +47,29 @@ public class FlyController : MonoBehaviour {
 		transform.position = _flyPath[0].ControlPoints.startPoint;
 
 	}
-	
-	void Update () 
+
+	protected virtual bool BoundCheck()
 	{
-//		// check parameters and components
-//		if (null == lineRenderer || null == start || null == startTangentPoint 
-//		    || null == end || null == endTangentPoint)
-//		{
-//			return; // no points specified
-//		} 
-//
-//		// update line renderer
-//		lineRenderer.startColor = color;
-//		lineRenderer.endColor = color;
-//		lineRenderer.startWidth = width;
-//		lineRenderer.endWidth = width;
-//		if (numberOfPoints > 0)
-//		{
-//			lineRenderer.positionCount = numberOfPoints;
-//		}
-//
-//		// set points of Hermite curve
-//		Vector3 p0 = start.transform.position;
-//		Vector3 p1 = end.transform.position;
-//		Vector3 m0 = startTangentPoint.transform.position - start.transform.position;
-//		Vector3 m1 = endTangentPoint.transform.position - end.transform.position;
-//		float t;
-//		Vector3 position;
-//
-//		for(int i = 0; i < numberOfPoints; i++)
-//		{
-//			t = i / (numberOfPoints - 1.0f);
-//			position = (2.0f * t * t * t - 3.0f * t * t + 1.0f) * p0 
-//			           + (t * t * t - 2.0f * t * t + t) * m0 
-//			           + (-2.0f * t * t * t + 3.0f * t * t) * p1 
-//			           + (t * t * t - t * t) * m1;
-//			lineRenderer.SetPosition(i, position);
-//		}
-		
-
-		if (_drawCurve)
-		{
-//			foreach (HermiteCurve curve in _flyPath)
-//			{
-//				curve.DrawHermiteCurve(_lineRenderer);
-//			}
-			_flyPath[0].DrawMultipleHermiteCurves(_lineRenderer, _flyPath);
-		}
-
 		if (_currentCurve == _flyPath.Count || _currentTargetCurvePoint == _flyPath[_currentCurve].CurvePoints.Count)
 		{
 			Destroy(this.gameObject);
-			return;
+			return true;
 		}
 
+		return false;
+	}
+	
+	void Update () 
+	{	
+
+		if (_drawCurve)
+		{
+			_flyPath[0].DrawMultipleHermiteCurves(_lineRenderer, _flyPath);
+		}
+
+		if(BoundCheck())
+			return;
+		
 		Vector3 normal = (_flyPath[_currentCurve].CurvePoints[_currentTargetCurvePoint] - transform.position).normalized;
 		transform.position = Vector3.MoveTowards(transform.position, transform.position + normal, Time.deltaTime * 10.0f);
 		float d = Vector3.Distance(transform.position, _flyPath[_currentCurve].CurvePoints[_currentTargetCurvePoint]);
@@ -110,14 +91,11 @@ public class FlyController : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag("HitZone"))
 		{
-			GameController.SharedInstance.UpdateScore(1);
+			GameController.SharedInstance.UpdateScore(1, flyType);
 			Destroy(this.gameObject);
 		}
 		if (other.gameObject.CompareTag("Hand"))
 		{
-//			HandController hand = other.gameObject.transform.parent.gameObject.GetComponent<HandController>();
-//			if (!hand.rotating)
-//				return;
 			GenerateCurves(4);
 			_currentTargetCurvePoint = 0;
 			_currentCurve = 0;
@@ -173,11 +151,6 @@ public class FlyController : MonoBehaviour {
 				controlPoints.startPoint = hermiteCurves[i - 1].ControlPoints.endPoint;
 				controlPoints.startTangentPoint = hermiteCurves[i - 1].ControlPoints.endTangentPoint;
 			}
-
-//			Instantiate(controlPrefab, controlPoints.startPoint, Quaternion.identity);
-//			Instantiate(tanPrefab, m0, Quaternion.identity);
-//			Instantiate(controlPrefab, controlPoints.endPoint, Quaternion.identity);
-//			Instantiate(tanPrefab, m1, Quaternion.identity);
 			
 			hermiteCurves.Add(new HermiteCurve(controlPoints));
 		}
