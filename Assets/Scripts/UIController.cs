@@ -6,19 +6,33 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-	public GameObject pausePanel, levelSwitchPanel;
+	public GameObject pausePanel, levelSwitchPanel, objectivePanel, instructionsPanel, menuElements;
 	public Text levelSwitchText;
 	public Button nextLevelButton;
-	
+	[HideInInspector]public bool isPaused;
+
+	private void Awake()
+	{
+		isPaused = false;
+		Pause(true, false);
+	}
+
 	public void OnStartButtonClick()
 	{
-		Pause(false, false);
+		Pause(true, false);
 		SceneManager.LoadScene("_Scene_1");
+	}
+
+	public void OnBeginButtonClick()
+	{
+		Pause(false, false);
+		objectivePanel.SetActive(false);
 	}
 
 	public void OnInstructionsButtonClick()
 	{
-		
+		menuElements.SetActive(false);
+		instructionsPanel.SetActive(true);
 	}
 	
 	public void OnQuitButtonClick()
@@ -31,22 +45,19 @@ public class UIController : MonoBehaviour
 		Pause(false, true);
 		//		pausePanel.SetActive(false);
 //		Time.timeScale = 1f;
-//		GameController.SharedInstance.isPaused = false;
+//		isPaused = false;
 	}
 
 	public void OnRetryButtonClick()
 	{
 		Pause(false, false);
 //		Time.timeScale = 1f;
-//		GameController.SharedInstance.isPaused = false;
+//		isPaused = false;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 	public void OnNextLevelButtonClick(string level)
 	{
-		Pause(false, true);
-//		Time.timeScale = 1f;
-//		GameController.SharedInstance.isPaused = false;
 		SceneManager.LoadScene(level);
 	}
 
@@ -61,7 +72,7 @@ public class UIController : MonoBehaviour
 		levelSwitchPanel.SetActive(true);
 		Pause(true, false);
 //		Time.timeScale = 0f;
-//		GameController.SharedInstance.isPaused = true;
+//		isPaused = true;
 
 		if (win)
 		{
@@ -78,32 +89,32 @@ public class UIController : MonoBehaviour
 	{
 		if (status)
 		{
-			if (GameController.SharedInstance.isPaused)
+			if (isPaused)
 				return;
-			if (togglePausePanel && !pausePanel.activeInHierarchy)
+			if (pausePanel != null && togglePausePanel && !pausePanel.activeInHierarchy)
 				pausePanel.SetActive(true);
 			Time.timeScale = 0f;
-			GameController.SharedInstance.isPaused = true;
+			isPaused = true;
 		}
 		else
 		{
-			if (!GameController.SharedInstance.isPaused)
+			if (!isPaused)
 				return;
-			if (togglePausePanel && pausePanel.activeInHierarchy)
+			if (pausePanel != null && togglePausePanel && pausePanel.activeInHierarchy)
 				pausePanel.SetActive(false);
 			Time.timeScale = 1f;
-			GameController.SharedInstance.isPaused = false;
+			isPaused = false;
 		}
 	}
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space) && !GameController.SharedInstance.isPaused && SceneManager.GetActiveScene().name != "MainMenu")
+		if (Input.GetKeyDown(KeyCode.Space) && !isPaused && SceneManager.GetActiveScene().name != "MainMenu")
 		{
 			Pause(true, true);
 //			pausePanel.SetActive(true);
 //			Time.timeScale = 0f;
-//			GameController.SharedInstance.isPaused = true;
+//			isPaused = true;
 		}
 	}
 }

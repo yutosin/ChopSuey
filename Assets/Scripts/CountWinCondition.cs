@@ -8,7 +8,7 @@ public class CountWinCondition : WinCondition
     
     public override bool CheckWin()
     {
-        if (count == GameController.SharedInstance.score)
+        if (GameController.SharedInstance.score >= count)
             win = true;
         else
             win = false;

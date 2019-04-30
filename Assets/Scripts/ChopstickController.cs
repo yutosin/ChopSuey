@@ -22,7 +22,7 @@ public class ChopstickController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (GameController.SharedInstance.isPaused)
+		if (GameController.SharedInstance.uiController.isPaused)
 			return;
 		Vector3 temp = Input.mousePosition;
 		temp.z = zPos;

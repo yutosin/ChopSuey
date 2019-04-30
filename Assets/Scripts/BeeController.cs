@@ -8,10 +8,19 @@ public class BeeController : FlyController
     {
         if (base.BoundCheck())
         {
-            GameController.SharedInstance.UpdateScore(1, FlyType.BEE);
+            GameController.SharedInstance.UpdateScore(1, FlyType.NONE);
             return true;
         }
         
         return false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("HitZone"))
+        {
+            GameController.SharedInstance.UpdateScore(10, FlyType.BEE);
+            Destroy(this.gameObject);
+        }
     }
 }

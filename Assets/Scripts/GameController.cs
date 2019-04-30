@@ -22,8 +22,6 @@ public class GameController : MonoBehaviour
 	public int score, blackScore, blueScore, redScore, beeScore  = 0;
 
 	public Text scoreText, blackScoreText, blueScoreText, redScoreText, beeScoreText, timerText;
-
-	public bool isPaused = false;
 	
 	public static GameController SharedInstance
 	{
@@ -128,6 +126,12 @@ public class GameController : MonoBehaviour
 		}
 		else if (winCondition.winType == WinType.BEE_PREVENT)
 		{
+			if (flyType == FlyType.BEE || flyType == FlyType.BLACK_FLY)
+			{
+				score += pointVal;
+				scoreText.text = "Score: " + score;
+				return;
+			}
 			BeePreventWinCondition beePreventWinCondition = (BeePreventWinCondition) winCondition;
 			beeScore += pointVal;
 			beeScoreText.text = "x" + beeScore + "\n/" + beePreventWinCondition.beeCount;
