@@ -5,9 +5,17 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="BeeController.cs" t="Include" />
+          <e p="BeePreventWinCondition.cs" t="Include" />
+          <e p="BugColorWinCondition.cs" t="Include" />
           <e p="ChopstickController.cs" t="Include" />
+          <e p="CountWinCondition.cs" t="Include" />
           <e p="FlyController.cs" t="Include" />
+          <e p="GameController.cs" t="Include" />
+          <e p="HandController.cs" t="Include" />
           <e p="HermiteCurve.cs" t="Include" />
+          <e p="UIController.cs" t="Include" />
+          <e p="WinCondition.cs" t="Include" />
         </e>
       </e>
       <e p="ChopSuey.sln" t="IncludeFlat" />

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
 	private static GameController _sharedInstance;
+	private float timeStart, timeElapsed;
+	private bool levelFinished = false;
 	
 	public WinCondition winCondition;
 	
@@ -13,9 +15,13 @@ public class GameController : MonoBehaviour
 
 	public GameObject beePrefab;
 
+	public UIController uiController;
+
+	public int levelLength = 120;
+
 	public int score, blackScore, blueScore, redScore, beeScore  = 0;
 
-	public Text scoreText, blackScoreText, blueScoreText, redScoreText, beeScoreText;
+	public Text scoreText, blackScoreText, blueScoreText, redScoreText, beeScoreText, timerText;
 
 	public bool isPaused = false;
 	
@@ -34,6 +40,7 @@ public class GameController : MonoBehaviour
 		}
 		
 		_sharedInstance = this;
+		timeStart = Time.time;
 		StartCoroutine(SpawnFlies());
 		if (winCondition.winType == WinType.BEE_PREVENT)
 			StartCoroutine(SpawnBees());
@@ -51,8 +58,23 @@ public class GameController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (winCondition.CheckWin())
-			Debug.Log("Win!");
+		timeElapsed = Time.time - timeStart;
+		UpdateTimeLeft();
+
+		if (timeElapsed >= levelLength && !levelFinished)
+		{
+			if (winCondition.CheckWin())
+			{
+				uiController.SwitchLevel(true);
+				Debug.Log("Win!");
+			}
+			else
+			{
+				uiController.SwitchLevel(false);
+				Debug.Log("Lose!");
+			}
+			levelFinished = true;
+		}
 	}
 
 	private IEnumerator SpawnBees()
@@ -76,6 +98,11 @@ public class GameController : MonoBehaviour
 				Instantiate(flyPrefabs[0], Vector3.zero, Quaternion.identity);
 			yield return new WaitForSeconds(.4f);
 		}
+	}
+
+	public void UpdateTimeLeft()
+	{
+		timerText.text = "Seconds Left: " + (int)(levelLength - timeElapsed);
 	}
 
 	public void UpdateScore(int pointVal, FlyType flyType)

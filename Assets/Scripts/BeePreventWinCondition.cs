@@ -8,7 +8,7 @@ public class BeePreventWinCondition : WinCondition
 
 	public override bool CheckWin()
 	{
-		if (GameController.SharedInstance.beeScore == beeCount)
+		if (GameController.SharedInstance.beeScore < beeCount)
 			win = true;
 		else
 			win = false;
