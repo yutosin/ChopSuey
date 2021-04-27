@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lineRenderer: {fileID: 120413880622494626}
-  _drawCurve: 1
+  _drawCurve: 0
   flyType: 2
   controlPrefab: {fileID: 1752555567619376, guid: 2a35cee35e7a7471a8485e0f983be003,
     type: 2}
@@ -91,7 +91,7 @@ LineRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 0d09594a0dd8f4ca099f32c9480d54b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

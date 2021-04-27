@@ -718,8 +718,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.9999, y: 50}
-  m_SizeDelta: {x: 899.2, y: 127.7}
+  m_AnchoredPosition: {x: -1.7, y: -20.35}
+  m_SizeDelta: {x: 901.8, y: 268.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &532501528
 MonoBehaviour:
@@ -756,7 +756,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 40
     m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 0
@@ -767,7 +767,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Move your chopsticks with your mouse and click to capture bugs!
+  m_Text: 'Move your chopsticks with your mouse and click to capture bugs!
+
+
+    Avoid catching yellow flies!
+
+
+    Press space to pause!'
 --- !u!222 &532501530
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1478,7 +1484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.9999278, y: -85.500015}
+  m_AnchoredPosition: {x: -0.000035048, y: -210}
   m_SizeDelta: {x: 264.9, y: 79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1660018527
