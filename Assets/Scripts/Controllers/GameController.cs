@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
 	public int score, blackScore, blueScore, redScore, beeScore  = 0;
 
 	public Text scoreText, blackScoreText, blueScoreText, redScoreText, beeScoreText, timerText;
-	
+
 	public static GameController SharedInstance
 	{
 		get { return _sharedInstance; }
@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour
 		}
 		
 		_sharedInstance = this;
+
 		timeStart = Time.time;
 		StartCoroutine(SpawnFlies());
 		StartCoroutine(SpawnYellowFlies());

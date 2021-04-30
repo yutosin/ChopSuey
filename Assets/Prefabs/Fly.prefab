@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4040652753369818}
   - component: {fileID: 212249288021475730}
+  - component: {fileID: 3790389308781544112}
   - component: {fileID: 114822264956761498}
   - component: {fileID: 135673128015225762}
   - component: {fileID: 54893199717004714}
@@ -86,6 +87,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3790389308781544112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978463209390032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89273c0a77174c36a28ce6a367dea59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FinishedRoute: 0
 --- !u!114 &114822264956761498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,9 +115,6 @@ MonoBehaviour:
   _lineRenderer: {fileID: 120413880622494626}
   _drawCurve: 0
   flyType: 0
-  controlPrefab: {fileID: 1752555567619376, guid: 2a35cee35e7a7471a8485e0f983be003,
-    type: 3}
-  tanPrefab: {fileID: 1285796527983540, guid: da1026cff105c4af39ab5ae340f81526, type: 3}
 --- !u!135 &135673128015225762
 SphereCollider:
   m_ObjectHideFlags: 0

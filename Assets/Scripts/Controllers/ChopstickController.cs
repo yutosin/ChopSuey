@@ -14,11 +14,6 @@ public class ChopstickController : MonoBehaviour
 	private float zPos = 10f;
 	private bool rotating;
 
-	// Use this for initialization
-	void Start ()
-	{
-	}
-	
 	// Update is called once per frame
 	void Update ()
 	{
@@ -35,26 +30,6 @@ public class ChopstickController : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0))
 			StartCoroutine(Click());
-
-//		if (Input.GetMouseButton(0))
-//		{
-//			captureSphere.enabled = true;
-//			Vector3 tempLocal = topChopStick.transform.localPosition;
-//			tempLocal.x = -0.7f;
-//			topChopStick.transform.localPosition = tempLocal;
-//
-//			topChopStick.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 25));
-//			
-//		}
-//		else
-//		{
-//			captureSphere.enabled = false;
-//			Vector3 tempLocal = topChopStick.transform.localPosition;
-//			tempLocal.x = 0f;
-//			topChopStick.transform.localPosition = tempLocal;
-//
-//			topChopStick.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
-//		}
 	}
 	
 	private IEnumerator Click()
