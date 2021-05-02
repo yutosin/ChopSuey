@@ -8,6 +8,10 @@ public class GameController : MonoBehaviour
 	private static GameController _sharedInstance;
 	private float timeStart, timeElapsed;
 	private bool levelFinished = false;
+
+	public delegate void ScoreUpdate(FlyType type, int score);
+
+	public ScoreUpdate OnScoreUpdate;
 	
 	public WinCondition winCondition;
 	
@@ -44,15 +48,15 @@ public class GameController : MonoBehaviour
 		StartCoroutine(SpawnYellowFlies());
 		if (winCondition.winType == WinType.BEE_PREVENT)
 			StartCoroutine(SpawnBees());
-		UpdateScore(0, FlyType.NONE);
+		UpdateScore(FlyType.NONE, 0);
 		if (winCondition.winType == WinType.BUG_COLOR)
 		{
-			UpdateScore(0, FlyType.BLACK_FLY);
-			UpdateScore(0, FlyType.BLUE_FLY);
-			UpdateScore(0, FlyType.RED_FLY);
+			UpdateScore(FlyType.BLACK_FLY, 0);
+			UpdateScore(FlyType.BLUE_FLY, 0);
+			UpdateScore(FlyType.RED_FLY, 0);
 		}
 		if (winCondition.winType == WinType.BEE_PREVENT)
-			UpdateScore(0, FlyType.BEE);
+			UpdateScore(FlyType.BEE, 0);
 	}
 	
 	// Update is called once per frame
@@ -83,7 +87,12 @@ public class GameController : MonoBehaviour
 		{
 			int spawnChance = Random.Range(0, 2);
 			if (spawnChance == 1)
-				Instantiate(beePrefab, Vector3.zero, Quaternion.identity);
+			{
+				GameObject fly = Instantiate(beePrefab, Vector3.zero, Quaternion.identity);
+				FlyController flyController = fly.GetComponent<FlyController>();
+				flyController.FlyKilledEvent += UpdateScore;
+			}
+
 			yield return new WaitForSeconds(5f);
 		}
 	}
@@ -94,7 +103,12 @@ public class GameController : MonoBehaviour
 		{
 			int spawnChance = Random.Range(0, 2);
 			if (spawnChance == 1)
-				Instantiate(flyPrefabs[3], Vector3.zero, Quaternion.identity);
+			{
+				GameObject fly = Instantiate(flyPrefabs[3], Vector3.zero, Quaternion.identity);
+				FlyController flyController = fly.GetComponent<FlyController>();
+				flyController.FlyKilledEvent += UpdateScore;
+			}
+
 			yield return new WaitForSeconds(2f);
 		}
 	}
@@ -103,11 +117,18 @@ public class GameController : MonoBehaviour
 	{
 		while (true)
 		{
+			GameObject fly;
 			if (winCondition.winType == WinType.BUG_COLOR)
-				Instantiate(flyPrefabs[Random.Range(0, 4)], Vector3.zero, Quaternion.identity);
+			{
+				fly = Instantiate(flyPrefabs[Random.Range(0, 4)], Vector3.zero, Quaternion.identity);
+			}
 			else
-				Instantiate(flyPrefabs[0], Vector3.zero, Quaternion.identity);
+			{
+				fly = Instantiate(flyPrefabs[0], Vector3.zero, Quaternion.identity);
+			}
 
+			FlyController flyController = fly.GetComponent<FlyController>();
+			flyController.FlyKilledEvent += UpdateScore;
 			yield return new WaitForSeconds(.4f);
 		}
 	}
@@ -116,9 +137,24 @@ public class GameController : MonoBehaviour
 	{
 		timerText.text = "Seconds Left: " + (int)(levelLength - timeElapsed);
 	}
-
-	public void UpdateScore(int pointVal, FlyType flyType)
+	
+	//i actually don't think how score is applied has to depend on win condition...certain flies only appear in certain
+	//game modes anyway, so just always listen for score update events
+	public void UpdateScore(FlyType flyType, int pointVal)
 	{
+		switch (flyType)
+		{
+			case FlyType.BLACK_FLY:
+				blackScore += pointVal;
+				break;
+			case FlyType.BLUE_FLY:
+				blueScore += pointVal;
+				break;
+			case FlyType.RED_FLY:
+				redScore += pointVal;
+				break;
+		}
+		
 		if (winCondition.winType == WinType.BUG_COLOR)
 		{
 			BugColorWinCondition bugColorWinCondition = (BugColorWinCondition) winCondition;

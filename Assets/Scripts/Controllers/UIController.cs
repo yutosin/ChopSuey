@@ -43,16 +43,11 @@ public class UIController : MonoBehaviour
 	public void OnResumeButtonClick()
 	{
 		Pause(false, true);
-		//		pausePanel.SetActive(false);
-//		Time.timeScale = 1f;
-//		isPaused = false;
 	}
 
 	public void OnRetryButtonClick()
 	{
 		Pause(false, false);
-//		Time.timeScale = 1f;
-//		isPaused = false;
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
@@ -71,8 +66,6 @@ public class UIController : MonoBehaviour
 	{
 		levelSwitchPanel.SetActive(true);
 		Pause(true, false);
-//		Time.timeScale = 0f;
-//		isPaused = true;
 
 		if (win)
 		{
@@ -112,9 +105,6 @@ public class UIController : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space) && !isPaused && SceneManager.GetActiveScene().name != "MainMenu")
 		{
 			Pause(true, true);
-//			pausePanel.SetActive(true);
-//			Time.timeScale = 0f;
-//			isPaused = true;
 		}
 	}
 }

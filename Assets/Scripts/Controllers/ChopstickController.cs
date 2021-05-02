@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ChopstickController : MonoBehaviour
 {
-	public GameObject topChopStick;
-	public Collider captureSphere;
-	public AudioSource clickSound;
+	[SerializeField] private GameObject topChopStick;
+	[SerializeField] private Collider captureSphere;
+	[SerializeField] private AudioSource clickSound;
 
 	[SerializeField] private float rotateDuration;
 	

@@ -14,13 +14,14 @@ public enum FlyType
 
 public class FlyController : MonoBehaviour
 {
+	public delegate void FlyKilled(FlyType type, int scoreVal);
+	public FlyKilled FlyKilledEvent;
+	
+	[SerializeField] private FlyType flyType;
 	[SerializeField] private LineRenderer _lineRenderer;
 	[SerializeField] private bool _drawCurve = true;
-
-	public FlyType flyType;
-
 	private HermiteMover _mover;
-	
+
 	void Start () 
 	{
 		transform.position = new Vector3(-HermiteMover.ScreenWidth * 2, 0, 0);
@@ -44,9 +45,17 @@ public class FlyController : MonoBehaviour
 		if (other.gameObject.CompareTag("HitZone"))
 		{
 			if (flyType == FlyType.BEE)
-				GameController.SharedInstance.UpdateScore(10, flyType);
+			{
+				//should pass the fly controller too so the game controller can unsubscribe
+				if (FlyKilledEvent != null)
+					FlyKilledEvent(flyType, 10);
+			}
 			else
-				GameController.SharedInstance.UpdateScore(1, flyType);
+			{
+				if (FlyKilledEvent != null)
+					FlyKilledEvent(flyType, 1);
+			}
+
 			Destroy(this.gameObject);
 		}
 	}
