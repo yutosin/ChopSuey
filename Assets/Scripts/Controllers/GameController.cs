@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum ScoreType
+{
+	TOTAL,
+	COLOR
+}
+
 public class GameController : MonoBehaviour
 {
 	private static GameController _sharedInstance;
 	private float timeStart, timeElapsed;
 	private bool levelFinished = false;
+	private ScoreType _scoreType;
 
 	public delegate void ScoreUpdate(FlyType type, int score);
 
@@ -23,7 +30,7 @@ public class GameController : MonoBehaviour
 
 	public int levelLength = 120;
 
-	public int score, blackScore, blueScore, redScore, beeScore  = 0;
+	public int score, blackScore, blueScore, redScore, yellowScore, beeScore  = 0;
 
 	public Text scoreText, blackScoreText, blueScoreText, redScoreText, beeScoreText, timerText;
 
@@ -44,19 +51,13 @@ public class GameController : MonoBehaviour
 		_sharedInstance = this;
 
 		timeStart = Time.time;
+		_scoreType = ScoreType.TOTAL;
 		StartCoroutine(SpawnFlies());
 		StartCoroutine(SpawnYellowFlies());
 		if (winCondition.winType == WinType.BEE_PREVENT)
 			StartCoroutine(SpawnBees());
-		UpdateScore(FlyType.NONE, 0);
 		if (winCondition.winType == WinType.BUG_COLOR)
-		{
-			UpdateScore(FlyType.BLACK_FLY, 0);
-			UpdateScore(FlyType.BLUE_FLY, 0);
-			UpdateScore(FlyType.RED_FLY, 0);
-		}
-		if (winCondition.winType == WinType.BEE_PREVENT)
-			UpdateScore(FlyType.BEE, 0);
+			_scoreType = ScoreType.COLOR; 
 	}
 	
 	// Update is called once per frame
@@ -88,9 +89,8 @@ public class GameController : MonoBehaviour
 			int spawnChance = Random.Range(0, 2);
 			if (spawnChance == 1)
 			{
-				GameObject fly = Instantiate(beePrefab, Vector3.zero, Quaternion.identity);
-				FlyController flyController = fly.GetComponent<FlyController>();
-				flyController.FlyKilledEvent += UpdateScore;
+				SubscribeToFlyKilledEvent(
+					Instantiate(beePrefab, Vector3.zero, Quaternion.identity));
 			}
 
 			yield return new WaitForSeconds(5f);
@@ -104,9 +104,8 @@ public class GameController : MonoBehaviour
 			int spawnChance = Random.Range(0, 2);
 			if (spawnChance == 1)
 			{
-				GameObject fly = Instantiate(flyPrefabs[3], Vector3.zero, Quaternion.identity);
-				FlyController flyController = fly.GetComponent<FlyController>();
-				flyController.FlyKilledEvent += UpdateScore;
+				SubscribeToFlyKilledEvent(
+					Instantiate(flyPrefabs[3], Vector3.zero, Quaternion.identity));
 			}
 
 			yield return new WaitForSeconds(2f);
@@ -117,20 +116,26 @@ public class GameController : MonoBehaviour
 	{
 		while (true)
 		{
-			GameObject fly;
 			if (winCondition.winType == WinType.BUG_COLOR)
 			{
-				fly = Instantiate(flyPrefabs[Random.Range(0, 4)], Vector3.zero, Quaternion.identity);
+				SubscribeToFlyKilledEvent(
+					Instantiate(flyPrefabs[Random.Range(0, 4)], Vector3.zero, Quaternion.identity));
 			}
 			else
 			{
-				fly = Instantiate(flyPrefabs[0], Vector3.zero, Quaternion.identity);
+				SubscribeToFlyKilledEvent(
+					Instantiate(flyPrefabs[0], Vector3.zero, Quaternion.identity));
 			}
-
-			FlyController flyController = fly.GetComponent<FlyController>();
-			flyController.FlyKilledEvent += UpdateScore;
 			yield return new WaitForSeconds(.4f);
 		}
+	}
+
+	private void SubscribeToFlyKilledEvent(GameObject fly)
+	{
+		FlyController flyController = fly.GetComponent<FlyController>();
+		if (!flyController)
+			return;
+		flyController.FlyKilledEvent += UpdateScore;
 	}
 
 	public void UpdateTimeLeft()
@@ -153,52 +158,37 @@ public class GameController : MonoBehaviour
 			case FlyType.RED_FLY:
 				redScore += pointVal;
 				break;
+			case FlyType.YELLOW_FLY:
+				yellowScore -= pointVal;
+				break;
+			case FlyType.BEE:
+				beeScore += pointVal;
+				break;
 		}
 		
-		if (winCondition.winType == WinType.BUG_COLOR)
+		if (OnScoreUpdate == null)
+			return;
+
+		if (_scoreType == ScoreType.TOTAL)
 		{
-			BugColorWinCondition bugColorWinCondition = (BugColorWinCondition) winCondition;
-			switch (flyType)
-			{
-				case FlyType.BLACK_FLY:
-					blackScore += pointVal;
-					blackScoreText.text = "x" + blackScore + "\n/" + bugColorWinCondition.blackFlyCount;
-					break;
-				case FlyType.BLUE_FLY:
-					blueScore += pointVal;
-					blueScoreText.text = "x" + blueScore + "\n/" + bugColorWinCondition.blueFlyCount;
-					break;
-				case FlyType.RED_FLY:
-					redScore += pointVal;
-					redScoreText.text = "x" + redScore + "\n/" + bugColorWinCondition.redFlyCount;
-					break;
-			}
+			int total = blackScore + blueScore + redScore + yellowScore + beeScore;
+			OnScoreUpdate(FlyType.NONE, total);
+			if (beeScore > 0)
+				OnScoreUpdate(FlyType.BEE, beeScore);
+			return;
 		}
-		else if (winCondition.winType == WinType.BEE_PREVENT)
+		
+		switch (flyType)
 		{
-			if (flyType == FlyType.BEE || flyType == FlyType.BLACK_FLY)
-			{
-				score += pointVal;
-				scoreText.text = "Score: " + score;
-				return;
-			}
-			if (flyType == FlyType.YELLOW_FLY)
-			{
-				score -= pointVal;
-				scoreText.text = "Score: " + score;
-				return;
-			}
-			BeePreventWinCondition beePreventWinCondition = (BeePreventWinCondition) winCondition;
-			beeScore += pointVal;
-			beeScoreText.text = "x" + beeScore + "\n/" + beePreventWinCondition.beeCount;
-		}
-		else
-		{
-			if (flyType == FlyType.YELLOW_FLY)
-				score -= pointVal;
-			else
-				score += pointVal;
-			scoreText.text = "Score: " + score;
+			case FlyType.BLACK_FLY:
+				OnScoreUpdate(flyType, blackScore);
+				break;
+			case FlyType.BLUE_FLY:
+				OnScoreUpdate(flyType, blueScore);
+				break;
+			case FlyType.RED_FLY:
+				OnScoreUpdate(flyType, redScore);
+				break;
 		}
 	}
 }
